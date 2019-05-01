@@ -15,21 +15,18 @@ class UnitTests(unittest.TestCase):
     """ Testcases for dataframe.py """
     def test_success(self):
         """ The dataframe has the expected columns """
-        target = read_data('http://samplecsvs.s3.amazonaws.com/'
-                           'Sacramentorealestatetransactions.csv')
+        target = read_data()
         exp_names = ['street', 'city', 'zip', 'state', 'beds', 'baths', 'sq__ft', 'type',
                      'sale_date', 'price', 'latitude', 'longitude']
-        self.assertTrue(list(target) == exp_names)
+        self.assertTrue(sorted(list(target)) == sorted(exp_names))
     def test_success1(self):
         """ There are no nan values """
-        target = read_data('http://samplecsvs.s3.amazonaws.com/'
-                           'Sacramentorealestatetransactions.csv')
+        target = read_data()
         null_sum = target.isnull().sum().sum()
         self.assertEqual(null_sum, 0)
     def test_success2(self):
         """ The dataframe has at least one row """
-        target = read_data('http://samplecsvs.s3.amazonaws.com/'
-                           'Sacramentorealestatetransactions.csv')
+        target = read_data()
         self.assertTrue(len(target) > 1)
 
 if __name__ == '__main__':
