@@ -24,51 +24,20 @@ def sort_dict(x):
 exp_dtypes = trans.dtypes
 exp_dtypes_sorted = sort_dict(exp_dtypes)
 
-
 def test_create_dataframe(df):
     act_names = list(df)
     act_names_sorted = sorted(act_names)
-
     act_dtypes = df.dtypes
     act_dtypes_sorted = sort_dict(act_dtypes)
-
-    count = 0
-    if act_names_sorted == exp_names_sorted:
-        count += 1
-    else:
-        pass
-    
-    if act_dtypes_sorted == exp_dtypes_sorted:
-        count += 1
-    else: 
-        pass
-    
-    if len(df) >= 10:
-        count += 1
-    else:
-        pass
-    
-    if count == 3:
+    if (act_names_sorted == exp_names_sorted) and \
+       (act_dtypes_sorted == exp_dtypes_sorted) and \
+       (len(df) >= 10):
         return True
     else:
-        return False
+        raise "Conditions are not met."
 
 def output_file():
     if test_create_dataframe(trans):
         return trans
     else:
-        return "None"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        raise "No dataframe returned."

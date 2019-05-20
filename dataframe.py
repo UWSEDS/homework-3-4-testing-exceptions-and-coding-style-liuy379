@@ -4,7 +4,6 @@
     have the expected column names
 """
 
-import pandas as pd
 from using_functions import output_file
 
 def read_data():
@@ -15,5 +14,5 @@ def read_data():
     if list(target) == exp_names:
         pass
     else:
-        raise ValueError("Dataframe doesn't have the expected column names")
+        raise "Dataframe doesn't have the expected column names."
     return target
