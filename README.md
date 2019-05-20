@@ -1,5 +1,14 @@
 # Homework 3-4: Coding style and Unit tests.
 
+##### Grade: 7/14   
+
+-2: In using_functions.test_create_dataframe: instead of having the if ... else pass structure, it is better to have an if...elif...elif... structure. This way, your code will be more succint.   
+-2: In using_functions: using a count to test conditions technically works, but that in general is considered bad style, because numbers inheritantly are not meant for this kind of condition checking and we have boolean variables for those.   
+-1: In using_functions: In general you shouldn't return magic strings such as "None" and then use that for condition checking.   
+-2: In test_dataframe.py: Test names should be descriptive.
+
+------
+
 **Note: This homework has a total of 14 points.**
 
 In this homework, you will create two python modules and put them in PEP8 style.
